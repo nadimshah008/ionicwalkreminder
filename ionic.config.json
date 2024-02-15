@@ -1,0 +1,7 @@
+{
+  "name": "walkremindernative",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,23 @@
+<ion-content class="ion-padding">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="ion-center">WALK REMINDER</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card color="light">
+    <ion-card-content class="ion-center card-time">
+      <ion-button class="" color="dark" (click)="openStartTime()">{{btnStartText}}</ion-button>
+      <ion-datetime presentation="time" *ngIf="isStartTimeOpen" [(ngModel)]="selectedStartTime"></ion-datetime>
+      <ion-card-title>{{selectedStartTime | date:'HH:mm a'}}</ion-card-title>
+      <ion-button color="dark" (click)="OpenEndTime()">{{btnEndText}}</ion-button>
+      <ion-datetime presentation="time" *ngIf="isEndTimeOpen" [(ngModel)]="selectedEndTime"></ion-datetime>
+      <ion-card-title>{{selectedEndTime | date:'HH:mm a'}}</ion-card-title>
+      <ion-select label="Choose Interval" placeholder="Select Interval" [(ngModel)]="interval">
+        <ion-select-option value="2">45 Mins</ion-select-option>
+        <ion-select-option value="3">60 Mins</ion-select-option>
+        <ion-select-option value="4">90 Mins</ion-select-option>
+      </ion-select>
+      <ion-button (click)="startReminders()" [disabled]="!selectedEndTime&&!selectedStartTime&&!interval">START REMINDERS</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
